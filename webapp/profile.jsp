@@ -119,7 +119,6 @@
                                 <div class="nav-drop-header">
                                     <span>Friend requests</span>
                                     <a href="#">
-                                        <!-- <i data-feather="search"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-friend-requests">
@@ -153,7 +152,6 @@
                                    
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -170,7 +168,6 @@
                                 <div class="nav-drop-header">
                                     <span>Notifications</span>
                                     <a href="#">
-                                        <!-- <i data-feather="bell"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-notifications">
@@ -220,7 +217,6 @@
                                    
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -260,9 +256,6 @@
                                                 <h3>${user.getfName()} ${user.getlName()}</h3>
                                                 <small>Main account</small>
                                             </div>
-                                            <!-- <div class="media-right">
-                                                <i data-feather="check"></i>
-                                            </div> -->
                                         </div>
                                     </a>
                                    
@@ -305,19 +298,9 @@
                 <div class="columns is-multiline no-margin">
                     <!-- Left side column -->
                     <div class="column is-paddingless">
-                        <!-- Timeline Header -->
-                        <!-- html/partials/pages/profile/timeline/timeline-header.html -->
-                        <!-- <div class="cover-bg"> -->
-                            <!-- <img class="cover-image" src="assets/img/demo/unsplash/10.jpg" alt=""> -->
                             <div class="avatar">
                                 <img style="border-radius: 50%;margin-left: 420px;height: 200px; width: 200px;" id="user-avatar" class="avatar-image" src="${showUser.getPhoto()}" alt="">
                             </div>
-                        <!-- </div> -->
-                        <!-- <div class="cover-overlay"></div>
-                        <div class="cover-edit modal-trigger" data-modal="change-cover-modal">
-                            <i class="mdi mdi-camera"></i>
-                            <span>Edit cover image</span>
-                        </div> -->
 
                         <div class="profile-menu is-hidden-mobile">
                         	<tag:if test="${friendStatus == -2}">	
@@ -327,19 +310,19 @@
 	                                    &nbsp;&nbsp;
 	                                    Add Friend
 	                                </a>
-	                                 <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                 <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-comments" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Message
 	                                </a>
 	                        	</div>
 	                        	<div class="menu-end">
-	                                <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-users" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Friends
 	                                </a>
-	                                <a href="profile-photos.html" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-picture-o" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Photos
@@ -353,19 +336,19 @@
 	                                    &nbsp;&nbsp;
 	                                    Cancel Request
 	                                </a>
-	                                 <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                 <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-comments" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Message
 	                                </a>
 	                        	</div>
 	                        	<div class="menu-end">
-	                                <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-users" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Friends
 	                                </a>
-	                                <a href="profile-photos.html" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-picture-o" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Photos
@@ -379,19 +362,19 @@
 	                                    &nbsp;&nbsp;
 	                                    Accept Request
 	                                </a>
-	                                 <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                 <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-comments" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Message
 	                                </a>
 	                        	</div>
 	                        	<div class="menu-end">
-	                                <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-users" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Friends
 	                                </a>
-	                                <a href="profile-photos.html" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-picture-o" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Photos
@@ -405,7 +388,7 @@
 	                                    &nbsp;&nbsp;
 	                                    Unfriend
 	                                </a>
-	                                 <a href="#" style="font-size: 14px;" class="button has-min-width">
+	                                 <a href="./Messages?actionType=get&friendID=${showUser.getUserID()}" style="font-size: 14px;" class="button has-min-width">
 	                                    <i class="fa fa-comments" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Message
@@ -426,24 +409,24 @@
                         	</tag:if>
                         	<tag:if test="${friendStatus == -1}">	
 	                        	<div class="menu-start">
-	                        		 <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                        		 <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-user" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Blocked
 	                                </a>
-	                                 <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                 <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-comments" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Message
 	                                </a>
 	                        	</div>
 	                        	<div class="menu-end">
-	                                <a href="#" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-users" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Friends
 	                                </a>
-	                                <a href="profile-photos.html" style="font-size: 14px;" class="button has-min-width" disabled="">
+	                                <a style="font-size: 14px;" class="button has-min-width" disabled="">
 	                                    <i class="fa fa-picture-o" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Photos
@@ -471,7 +454,7 @@
                             </div>
                             <div class="subheader-end is-hidden-mobile">
                            	 	<tag:if test="${friendStatus == -2}">
-                            		<a href="#"  class="button has-icon is-bold" disabled="">
+                            		<a class="button has-icon is-bold" disabled="">
 	                                    <i class="fa fa-ban" aria-hidden="true"></i>
 	                                    &nbsp;&nbsp;
 	                                    Block
@@ -505,7 +488,6 @@
                             <div class="dropdown is-neutral is-spaced is-right dropdown-trigger">
                                 <div>
                                     <div class="button" style="cursor: default;">
-                                        <!-- <i data-feather="more-vertical"></i> -->
                                     </div>
                                 </div>
                             </div>
@@ -641,10 +623,7 @@
                                                         <i data-feather="save"></i>
                                                         <span>${post.getUserSaves().size()}</span>
                                                     </div>
-                                                    <div class="comments-count">
-                                                        <i data-feather="message-circle"></i>
-                                                        <span>5</span>
-                                                    </div>
+                                                    <div class="comments-count"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -721,10 +700,7 @@
                                                         <i data-feather="save"></i>
                                                         <span>${post.getUserSaves().size()}</span>
                                                     </div>
-                                                    <div class="comments-count">
-                                                        <i data-feather="message-circle"></i>
-                                                        <span>2</span>
-                                                    </div>
+                                                    <div class="comments-count"></div>
                                                 </div>
                                             </div>
                                         </div>

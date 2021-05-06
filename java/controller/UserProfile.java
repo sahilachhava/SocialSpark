@@ -53,6 +53,11 @@ public class UserProfile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
+		if(((User)session.getAttribute("user")) == null) {
+			response.sendRedirect("index.jsp");
+			return;
+		}
+		
 		int currentUserID = ((User)session.getAttribute("user")).getUserID();
 		int userID = Integer.parseInt(request.getParameter("userID"));
 		

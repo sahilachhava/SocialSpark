@@ -10,14 +10,16 @@ public class User {
 	private String bio;
 	private String city;
 	private String country;
+	private String recoveryCode;
 	
 	public User(int userID, String fName, String lName, String photo, String email, String phone, String bio, String city,
-			String country) {
+			String country, String recoveryCode) {
 		this.userID = userID;
 		this.fName = fName;
 		this.lName = lName;
 		this.photo = photo;
 		this.email = email;
+		this.recoveryCode = recoveryCode;
 		this.phone = phone == null ? "" : phone;
 		this.bio = bio == null ? "" : bio;
 		this.city = city == null ? "" : city;
@@ -86,5 +88,13 @@ public class User {
 	
 	public int getUserID() {
 		return userID;
+	}
+
+	public String getRecoveryCode() {
+		return recoveryCode;
+	}
+
+	public void setRecoveryCode(String recoveryCode) {
+		this.recoveryCode = recoveryCode;
 	}
 }

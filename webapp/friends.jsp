@@ -47,7 +47,6 @@
                     <div class="form-icon">
                         <i data-feather="search"></i>
                     </div>
-                    <!-- <div id="friendContent" class="tipue-drop-content"></div>  -->
                     <div id="tipue_drop_content" class="tipue-drop-content"></div> 
                 </div>
             </div>
@@ -122,7 +121,6 @@
                                 <div class="nav-drop-header">
                                     <span>Friend requests</span>
                                     <a href="#">
-                                        <!-- <i data-feather="search"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-friend-requests">
@@ -157,7 +155,6 @@
                                    
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -174,7 +171,6 @@
                                 <div class="nav-drop-header">
                                     <span>Notifications</span>
                                     <a href="#">
-                                        <!-- <i data-feather="bell"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-notifications">
@@ -223,44 +219,8 @@
                                    </tag:forEach>
 
                                     
-                                    <!-- <div class="media">
-                                        <figure class="media-left">
-                                            <p class="image">
-                                                <img src="../via.placeholder.com/300x300.png" data-demo-src="assets/img/avatars/david.jpg" alt="">
-                                            </p>
-                                        </figure>
-                                        <div class="media-content">
-                                            <span><a href="#">David Kim</a> commented on <a href="#">your post</a>.</span>
-                                            <span class="time">30 minutes ago</span>
-                                        </div>
-                                        <div class="media-right">
-                                            <div class="added-icon">
-                                                <i data-feather="message-square"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                   
-                                    <div class="media">
-                                        <figure class="media-left">
-                                            <p class="image">
-                                                <img src="../via.placeholder.com/300x300.png" data-demo-src="assets/img/avatars/daniel.jpg" alt="">
-                                            </p>
-                                        </figure>
-                                        <div class="media-content">
-                                            <span><a href="#">Daniel Wellington</a> liked your <a href="#">profile.</a></span>
-                                            <span class="time">43 minutes ago</span>
-                                        </div>
-                                        <div class="media-right">
-                                            <div class="added-icon">
-                                                <i data-feather="heart"></i>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                   
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -300,9 +260,6 @@
                                                 <h3>${user.getfName()} ${user.getlName()}</h3>
                                                 <small>Main account</small>
                                             </div>
-                                            <!-- <div class="media-right">
-                                                <i data-feather="check"></i>
-                                            </div> -->
                                         </div>
                                     </a>
                                    
@@ -352,8 +309,8 @@
             <tag:if test="${allFriends.size() < 1}">
                 <div class="page-placeholder">
                     <div class="placeholder-content">
-                        <img class="light-image" src="assets/img/illustrations/placeholders/1.svg" alt="" />
-                        <img class="dark-image" src="assets/img/illustrations/placeholders/1.svg" alt="" />
+                        <img class="light-image" src="assets/img/1.svg" alt="" />
+                        <img class="dark-image" src="assets/img/1.svg" alt="" />
                         <%  if(checkUser.equals("1")) { %>
 	                        <h3>You don't have any friends yet.</h3>
 	                        <p class="is-large">Too bad. Looks like you didn't make friends yet. But don't fret that
@@ -373,32 +330,12 @@
                 <div class="columns is-multiline no-margin">
                     <!-- Left side column -->
                     <div class="column is-paddingless">
-                        <!-- Timeline Header -->
-                        <!-- html/partials/pages/profile/timeline/timeline-header.html -->
-                        <!-- <div class="cover-bg"> -->
-                            <!-- <img class="cover-image" src="assets/img/demo/unsplash/10.jpg" alt=""> -->
                             <div class="avatar">
                                 <img style="border-radius: 50%;margin-left: 420px;height: 200px; width: 200px;" id="user-avatar" class="avatar-image" src="${pUser.getPhoto()}" alt="">
                             </div>
-                        <!-- </div> -->
-                        <!-- <div class="cover-overlay"></div>
-                        <div class="cover-edit modal-trigger" data-modal="change-cover-modal">
-                            <i class="mdi mdi-camera"></i>
-                            <span>Edit cover image</span>
-                        </div> -->
 
                         <div class="profile-menu is-hidden-mobile">
                             <div class="menu-start">
-                                <!-- <a href="profile-main.html" style="font-size: 14px;" class="button has-min-width">
-                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                    &nbsp;&nbsp;
-                                    Add Friend
-                                </a>
-                                <a href="profile-about.html" style="font-size: 14px;" class="button has-min-width">
-                                    <i class="fa fa-comments" aria-hidden="true"></i>
-                                    &nbsp;&nbsp;
-                                    Message
-                                </a> -->
                             </div>
                             <div class="menu-end">
                                 <a href="./GetFriends?userID=${pUser.getUserID()}" style="font-size: 14px;" class="button has-min-width">
@@ -416,19 +353,12 @@
 
                         <div class="profile-subheader">
                             <div class="subheader-start is-hidden-mobile">
-                                <!-- <span>3.4K</span>
-                                <span>Friends</span> -->
                             </div>
                             <div class="subheader-middle" style="margin-top: -75px;">
                                 <h2>${pUser.getfName()} ${pUser.getlName()}</h2>
                                 <span>${pUser.getBio()}</span>
                             </div>
                             <div class="subheader-end is-hidden-mobile">
-                                <!-- <a class="button has-icon is-bold">
-                                    <i class="fa fa-user-times" aria-hidden="true"></i>
-                                    &nbsp;&nbsp;
-                                    Block
-                                </a> -->
                             </div>
                         </div>
                     </div>

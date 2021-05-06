@@ -17,12 +17,12 @@ public class UserDB {
 		this.dbConfig = dbConfig;
 	}
 	
-	public boolean registerUser(String fName, String lName, String photo, String email, String phone, String password) throws Exception {
+	public boolean registerUser(String fName, String lName, String photo, String email, String phone, String password, String recoveryCode) throws Exception {
 		 Connection conn = null;
 		 PreparedStatement ps = null;
 		
-		String insertQuery = "insert into users(userFName, userLName, userPhoto, userEmail, userPhone, userPassword)"
-				+ "values(?,?,?,?,?,?)";
+		String insertQuery = "insert into users(userFName, userLName, userPhoto, userEmail, userPhone, userPassword, recoveryCode)"
+				+ "values(?,?,?,?,?,?,?)";
 		
 		try {
 			conn = this.dbConfig.getConnection();
@@ -34,6 +34,7 @@ public class UserDB {
 			ps.setString(4, email);
 			ps.setString(5, phone);
 			ps.setString(6, password);
+			ps.setString(7, recoveryCode);
 			
 			ps.executeUpdate();
 			return true;
@@ -88,7 +89,8 @@ public class UserDB {
 					res.getString("userPhone"),
 					res.getString("userBio"),
 					res.getString("userCity"),
-					res.getString("userCountry")
+					res.getString("userCountry"),
+					res.getString("recoveryCode")
 				);
 				
 				return user;
@@ -115,17 +117,7 @@ public class UserDB {
 			while(res.next()) {
 				allUsers.put(
 					res.getInt("userID"), 
-					new User(
-						res.getInt("userID"),
-						res.getString("userFName"),
-						res.getString("userLName"),
-						res.getString("userPhoto"),
-						res.getString("userEmail"),
-						res.getString("userPhone"),
-						res.getString("userBio"),
-						res.getString("userCity"),
-						res.getString("userCountry")
-					)
+					getUser(res.getInt("userID"))
 				);
 			}
 			
@@ -602,6 +594,129 @@ public class UserDB {
 			ps.setString(3, oldPass);
 			
 			return ps.executeUpdate();
+		} finally {
+			closeConnection(conn, null, ps, null);
+		}
+	}
+	
+	public String getRecoveryCode(String userEmail) throws Exception {
+		Connection conn = null;
+		Statement st = null;
+		ResultSet res = null;
+		
+		String searchQuery = "select * from users where userEmail = '" + userEmail + "'";
+		
+		try {
+			conn = this.dbConfig.getConnection();
+			st = conn.createStatement();
+			res = st.executeQuery(searchQuery);
+			
+			while(res.next()) {
+				return res.getString("recoveryCode");
+			}
+			
+			return "notFound";
+		} finally {
+			closeConnection(conn, st, null, res);
+		}
+	}
+	
+	public boolean changeNewPassword(String userEmail, String newPassword) throws Exception {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		String searchQuery = "update users set userPassword = ? where userEmail = ?";
+		
+		try {
+			conn = this.dbConfig.getConnection();
+			ps = conn.prepareStatement(searchQuery);
+			ps.setString(1, newPassword);
+			ps.setString(2, userEmail);
+			ps.executeUpdate();
+			return true;
+		} finally {
+			closeConnection(conn, null, ps, null);
+		}
+	}
+	
+	public ArrayList<Message> sendMessage(int userID, int friendID, String msgText) throws Exception {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		String insertQuery = "insert into messages(senderID, receiverID, msgText) values(?,?,?)";
+		
+		try {
+			conn = this.dbConfig.getConnection();
+			ps = conn.prepareStatement(insertQuery);
+			
+			ps.setInt(1, userID);
+			ps.setInt(2, friendID);
+			ps.setString(3, msgText);
+			
+			ps.executeUpdate();
+			
+			return getMessages(userID, friendID);
+		} finally {
+			closeConnection(conn, null, ps, null);
+		}
+	}
+	
+	public ArrayList<Message> getMessages(int userID, int friendID) throws Exception {
+		Connection conn = null;
+		Statement st = null;
+		ResultSet res = null;
+		
+		ArrayList<Message> allMsgs = new ArrayList<Message>();
+		
+		String searchQuery = "select * from messages where "
+				+ "(senderID = " + userID  
+				+ " or senderID = " + friendID + ")"
+				+ "and (receiverID = " + friendID 
+				+ " or receiverID = " + userID + ")";
+		
+		try {
+			conn = this.dbConfig.getConnection();
+			st = conn.createStatement();
+			res = st.executeQuery(searchQuery);
+			
+			while(res.next()) {
+				allMsgs.add(
+					new Message(
+						res.getInt("senderID"),
+						res.getInt("receiverID"),
+						getUser(res.getInt("senderID")),
+						getUser(res.getInt("receiverID")),
+						res.getString("msgText"),
+						res.getTimestamp("msgTime")
+					)
+				);
+			}
+			
+			return allMsgs;
+		} finally {
+			closeConnection(conn, st, null, res);
+		}
+	}
+	
+	public ArrayList<Message> deleteMessage(int userID, int friendID) throws Exception {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		String deleteQuery = "delete from messages where " 
+				+ "(senderID = ? or senderID = ?) and (receiverID = ? or receiverID = ?)";
+		
+		try {
+			conn = this.dbConfig.getConnection();
+			ps = conn.prepareStatement(deleteQuery);
+			
+			ps.setInt(1, userID);
+			ps.setInt(2, friendID);
+			ps.setInt(3, friendID);
+			ps.setInt(4, userID);
+			
+			ps.executeUpdate();
+			
+			return getMessages(userID, friendID);
 		} finally {
 			closeConnection(conn, null, ps, null);
 		}

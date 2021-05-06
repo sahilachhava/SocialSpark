@@ -71,7 +71,7 @@
         <div class="bottom-section">
             <ul>
                 <li>
-                    <a href="feeds.jsp" class="is-active">
+                    <a href="feed.jsp" class="is-active">
                         <i data-feather="home"></i>
                         <span>Home</span>
                     </a>
@@ -130,7 +130,6 @@
                                 <div class="nav-drop-header">
                                     <span>Friend requests</span>
                                     <a href="#">
-                                        <!-- <i data-feather="search"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-friend-requests">
@@ -164,7 +163,6 @@
 
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -181,7 +179,6 @@
                                 <div class="nav-drop-header">
                                     <span>Notifications</span>
                                     <a href="#">
-                                        <!-- <i data-feather="bell"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-notifications">
@@ -231,7 +228,6 @@
                                    
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -490,6 +486,8 @@
                                     <div class="column is-6">
                                         <a href="./DeleteAccount?actionType=clearAccount" style="height:50px; width:200px;margin: 0px 50px 20px 0px;background-color: orange;" class="button is-solid form-button">Clear Account Data</a>
                                     	<a href="./DeleteAccount?actionType=deleteAccount" style="height:50px; width:200px;margin: 0px 50px 0 0px;background-color: red;" class="button is-solid form-button">Delete Account</a>
+                                    	<h2 style="margin-left: 20px; margin-top: 15px;">Recovery Code</h2>
+                                    	<h2 style="margin-left: 27px; margin-top: 5px;font-size: 36px;">${user.getRecoveryCode()}</h2>
                                     </div>
 
                                     <div class="column is-12">
@@ -506,8 +504,8 @@
                         <!-- advance setting form ends -->
 
                             <div class="illustration">
-                                <img class="light-image" src="assets/img/illustrations/settings/1.svg" alt="">
-                                <img class="dark-image" src="assets/img/illustrations/settings/1-dark.svg" alt="">
+                                <img class="light-image" src="assets/img/1-light.svg" alt="">
+                                <img class="dark-image" src="assets/img/1-dark.svg" alt="">
                                 <p>If you'd like to know about general settings, then it's your profile details which you can update from here.</p>
                             </div>
                         </div>

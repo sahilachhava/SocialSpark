@@ -47,7 +47,6 @@
                     <div class="form-icon">
                         <i data-feather="search"></i>
                     </div>
-                    <!-- <div id="friendContent" class="tipue-drop-content"></div>  -->
                     <div id="tipue_drop_content" class="tipue-drop-content"></div> 
                 </div>
             </div>
@@ -122,7 +121,6 @@
                                 <div class="nav-drop-header">
                                     <span>Friend requests</span>
                                     <a href="#">
-                                        <!-- <i data-feather="search"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-friend-requests">
@@ -157,7 +155,6 @@
                                    
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -174,7 +171,6 @@
                                 <div class="nav-drop-header">
                                     <span>Notifications</span>
                                     <a href="#">
-                                        <!-- <i data-feather="bell"></i> -->
                                     </a>
                                 </div>
                                 <div class="nav-drop-body is-notifications">
@@ -223,7 +219,6 @@
                                    </tag:forEach>
                                 </div>
                                 <div class="nav-drop-footer">
-                                    <!-- <a href="#">View All</a> -->
                                 </div>
                             </div>
                         </div>
@@ -263,9 +258,6 @@
                                                 <h3>${user.getfName()} ${user.getlName()}</h3>
                                                 <small>Main account</small>
                                             </div>
-                                            <!-- <div class="media-right">
-                                                <i data-feather="check"></i>
-                                            </div> -->
                                         </div>
                                     </a>
                                    
@@ -305,8 +297,10 @@
             
             <%
 	            String checkUser = (request.getParameter("friends") == null) ? "1" : "0";
+                String status = "false";
 	           	if(checkUser.equals("0")){
 	           		session.setAttribute("pUser", session.getAttribute("showUser"));
+                    status = "true";
 	           	}else{
 	           		session.setAttribute("pUser", session.getAttribute("user"));
 	           	}
@@ -322,8 +316,8 @@
             <% if(!flag) { %>
                 <div class="page-placeholder">
                     <div class="placeholder-content">
-                        <img class="light-image" src="assets/img/illustrations/placeholders/1.svg" alt="" />
-                        <img class="dark-image" src="assets/img/illustrations/placeholders/1.svg" alt="" />
+                        <img class="light-image" src="assets/img/1.svg" alt="" />
+                        <img class="dark-image" src="assets/img/1.svg" alt="" />
                        	<%  if(checkUser.equals("0")) { %>
 	                        <h3>${pUser.getfName()} don't have any photos yet.</h3>
 	                        <p class="is-large">Too bad. Looks like ${pUser.getfName()} didn't created any post yet.</p>
@@ -348,7 +342,7 @@
                             <div class="menu-start">
                             </div>
                             <div class="menu-end">
-                                <a href="./GetFriends?userID=${pUser.getUserID()}" style="font-size: 14px;" class="button has-min-width">
+                                <a href="./GetFriends?friend=<%=status%>&userID=${pUser.getUserID()}" style="font-size: 14px;" class="button has-min-width">
                                     <i class="fa fa-users" aria-hidden="true"></i>
                                     &nbsp;&nbsp;
                                     Friends

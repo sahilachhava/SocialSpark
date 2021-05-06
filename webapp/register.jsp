@@ -96,7 +96,6 @@
                     </div>
                 
                     <div class="buttons">
-                        <!-- <a href="index.jsp" class="button is-rounded process-button">Login now</a> -->
                         <a onclick="validateForm(1)" class="button is-rounded process-button is-next">Next</a>
                     </div>
 
@@ -110,9 +109,7 @@
                                 <a id="uploadPic" class="upload-button">
                                     <i data-feather="plus"></i>
                                 </a>
-                                
                                 <img id="upload-preview" src="assets/images/profilePic/default.jpg" alt="">
-                                <!-- <form id="profile-pic-dz" class="dropzone is-hidden" action="https://localhost:8080/"></form> -->
                             </div>
                             <div class="limitation">
                                 <small>Only images with a size lower than 3MB are accepted.</small>
@@ -159,7 +156,7 @@
 
                 <div id="signup-panel-4" class="process-panel-wrap is-narrow">
                     <div class="form-panel">
-                        <img class="success-image" src="assets/img/illustrations/signup/type-3.svg" alt="">
+                        <img class="success-image" src="assets/img/type-3.svg" alt="">
                         <div class="success-text">
                             <h3>Congratz, you successfully created your account.</h3>
                             <p> Please login to your account.</p>
@@ -170,27 +167,6 @@
             </div>
         </div>
     </form>
-        <!--Edit Credit card Modal-->
-        <div id="crop-modal" class="modal mdl-modal is-small crop-modal is-animated">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <div class="modal-card-title">
-                            <span>Crop your picture</span>
-                        </div>
-                        <button class="mdl-modal-close" aria-label="close">
-                            <i data-feather="x"></i>
-                        </button>
-                    </header>
-                    <div class="modal-card-body">
-                        <div id="cropper-wrapper" class="cropper-wrapper">
-        
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Concatenated js plugins and jQuery -->

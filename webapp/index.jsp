@@ -38,17 +38,18 @@
                     </div>
                 </div>
             </div>
+
             <!--Right Side-->
             <div class="column is-6">
                 <div class="hero form-hero is-fullheight">
                     <!--Logo-->
                     <div class="logo-wrap">
                         <div class="wrap-inner">
-                            <!-- <img src="assets/img/logo/friendkit-white.svg" alt=""> -->
-                            <img src="assets/img/icons/emoji/emoji-1.svg" alt="">
+                            <img src="assets/img/emoji-1.svg" alt="">
                         </div>
                     </div>
-                    <!--Login Form-->
+
+                    <!-- Login Form -->
                     <div class="hero-body">
                         <div class="form-wrapper">
                             <!--Avatar-->
@@ -56,7 +57,7 @@
                                 <div class="badge">
                                     <i data-feather="check"></i>
                                 </div>
-                                <img src="assets/img/avatars/azzouz.jpg" alt="">
+                                <img src="assets/img/azzouz.jpg" alt="">
                             </div>
                             <!--Form-->
                             <form action="./Login" method="post">
@@ -87,7 +88,7 @@
 
                             <div class="section forgot-password">
                                 <div class="has-text-centered">
-                                    <a href="#">Forgot password?</a>
+                                    <a href="forgotPass.jsp">Forgot password?</a>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,6 +100,8 @@
                     </div>
                 </div>
             </div>
+            <!-- Login Form finished -->
+
         </div>
     </div>
 

@@ -53,6 +53,11 @@ public class GetFriends extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		if(((User)session.getAttribute("user")) == null) {
+			response.sendRedirect("index.jsp");
+			return;
+		}
+		
 		ArrayList<User> allFriends = new ArrayList<User>();
 		int userID = Integer.parseInt(request.getParameter("userID"));
 		String isFriend = request.getParameter("friend");

@@ -65,6 +65,7 @@ public class Register extends HttpServlet {
 		
 		boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
 		 if (!isMultipartContent) {
+			response.sendRedirect("index.jsp");
 			 return;
 		 }
 		 FileItemFactory factory = new DiskFileItemFactory();
@@ -122,9 +123,13 @@ public class Register extends HttpServlet {
 			 System.exit(0);
 		 }
 		 
+		//New user's 6 Digit Recovery Code
+	    int number = new Random().nextInt(999999);
+	    String recoveryCode = String.format("%06d", number);
+		 
 		 
 		try {
-			flag = userDB.registerUser(fName, lName, profilePicPath, email, phone, pass);
+			flag = userDB.registerUser(fName, lName, profilePicPath, email, phone, pass, recoveryCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

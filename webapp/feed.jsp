@@ -5,8 +5,11 @@
 <%@ page import="model.*"  %>
 <%@ page import="java.util.*"  %>
 <%
+	boolean loggedIn = false;
 	if(((User)session.getAttribute("user")) == null){
 		response.sendRedirect("index.jsp");
+	}else{
+		loggedIn = true;
 	}
 %>
 <!DOCTYPE html>
@@ -256,9 +259,6 @@
                                                 <h3>${user.getfName()} ${user.getlName()}</h3>
                                                 <small>Main account</small>
                                             </div>
-                                            <!-- <div class="media-right">
-                                                <i data-feather="check"></i>
-                                            </div> -->
                                         </div>
                                     </a>
                                    
@@ -402,11 +402,21 @@
                             </div>
                         </div>
                     <!-- Create Post Box Ends -->
-
+					<% ArrayList<Integer> friendIDs = new ArrayList<Integer>(); %>
+					<%
+						if(loggedIn){
+							//Current friendIDs
+							for(User myFriend : (ArrayList<User>)session.getAttribute("allFriends")) {
+								friendIDs.add(myFriend.getUserID());
+							}
+							session.setAttribute("myFriendIDs", friendIDs);
+						}
+					%>
+						
                     <!-- Post Section starts -->
                     <div class="profile-timeline">
                     <tag:forEach var="post" items="${allPosts}">
-                     <tag:if test="${post.getVisibility() == 0 || user.getUserID() == post.user.getUserID() || (post.getVisibility() == 1 && allFriends.contains(post.user.getUserID()))}">
+                     <tag:if test="${post.getVisibility() == 0 || user.getUserID() == post.user.getUserID() || (post.getVisibility() == 1 && myFriendIDs.contains(post.user.getUserID()))}">
 						<!-- Media Posts -->
 						<tag:if test="${post.isMedia()}">
                             <div class="profile-post">
@@ -706,6 +716,7 @@
                                     </div>
                                 </div>
                                 <% 
+                                	if(loggedIn){
                                 	int count = 0;
                                 	for(User friend : (ArrayList<User>)session.getAttribute("allFriends")) {
                                 %>
@@ -714,7 +725,7 @@
                                             <img src="<%= friend.getPhoto() %>" alt="">
                                         </div>
                                         <div class="story-meta">
-                                            <a href="./UserProfile?userID=<%=friend.getUserID()%>"><span><%= friend.getfName() + " " + friend.getlName() %></span></a>
+                                            <a href="./Messages?actionType=get&friendID=<%=friend.getUserID()%>"><span><%= friend.getfName() + " " + friend.getlName() %></span></a>
                                             <span><%=friend.getBio()%></span>
                                         </div>
                                     </div>
@@ -722,7 +733,7 @@
 	                                	if(count == 5){
 	                                		break;
 	                                	}
-                                	}
+                                	} }
                                 %>
                             </div>
                         </div>
@@ -737,11 +748,12 @@
                             </div>
                             <div class="card-body no-padding">
 							<% 
+								if(loggedIn){
 								int cntr = 0;
+								
 								for(User friend : (ArrayList<User>)session.getAttribute("allUsers")) { 
 								if(friend.getUserID() != ((User)session.getAttribute("user")).getUserID()) {
-									for(User checkFriend : (ArrayList<User>)session.getAttribute("allFriends")) {
-										if(checkFriend.getUserID() != friend.getUserID()) {
+										if(!friendIDs.contains(friend.getUserID())) {
 							%>
 								<div class="add-friend-block transition-block">
                                     <img src="<%= friend.getPhoto() %>" alt="">
@@ -749,17 +761,15 @@
                                         <a href="./UserProfile?userID=<%=friend.getUserID()%>"><span><%= friend.getfName() + " " + friend.getlName() %></span></a>
                                         <span><%= friend.getCity() + " " + friend.getCountry() %></span>
                                     </div>
-                                    <!-- <div class="add-friend add-transition">
-                                        <i data-feather="user-plus"></i>
-                                    </div> -->
                                 </div>
 							<%
 								cntr++; 
-								} } } 
+								} 
+								}
 								if(cntr == 5){
 									break;
 								}
-								} 
+								} }
 							%>
                             </div>
                         </div>
