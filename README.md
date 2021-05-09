@@ -19,20 +19,20 @@ Katsuki Bakugo  | katsuki@spark.com | 12345
 
 _Feed page_<br />
 
-![Homepage](https://github.com/sahilachhava/SocialSpark/blob/main/screenshots/feed.png)<br />
+![Homepage](https://github.com/sahilachhava/SocialSpark/blob/master/screenshots/feed.png)<br />
 
 _My profile_<br />
 
-![Homepage](https://github.com/sahilachhava/SocialSpark/blob/main/screenshots/profile.png)<br />
+![Homepage](https://github.com/sahilachhava/SocialSpark/blob/master/screenshots/profile.png)<br />
 
 _My photos_<br />
 
-![Homepage](https://github.com/sahilachhava/SocialSpark/blob/main/screenshots/photos.png)<br />
+![Homepage](https://github.com/sahilachhava/SocialSpark/blob/master/screenshots/photos.png)<br />
 
 _messages_<br />
 
-![Homepage](https://github.com/sahilachhava/SocialSpark/blob/main/screenshots/message.png)<br />
+![Homepage](https://github.com/sahilachhava/SocialSpark/blob/master/screenshots/message.png)<br />
 
 _settings_<br />
 
-![Homepage](https://github.com/sahilachhava/SocialSpark/blob/main/screenshots/setting.png)<br />
+![Homepage](https://github.com/sahilachhava/SocialSpark/blob/master/screenshots/setting.png)<br />
