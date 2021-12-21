@@ -1,9 +1,8 @@
 # SocialSpark
 
 **Developed in 2021** <br />
-for college project <br /><br />
 
-*This website is created as college project, it's an social media platform based on Java servlet*<br />
+*It's an social media platform developed with Java servlet*<br />
 
 **Tutorial URL:** [Click here](https://drive.google.com/file/d/1dlgfebs6bpkGEPsOlrwGrRdZse5nJHYX/view?usp=sharing)<br />
 
